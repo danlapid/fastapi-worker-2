@@ -18,7 +18,7 @@ fi
 # Create pyodide virtual environment if it doesn't exist
 if [ ! -d ".venv-pyodide" ]; then
     echo "Creating pyodide virtual environment (.venv-pyodide)..."
-    .venv/bin/pyodide venv .venv-pyodide
+    pyodide venv .venv-pyodide
 else
     echo "Using existing pyodide virtual environment (.venv-pyodide)..."
 fi
