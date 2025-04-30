@@ -7,10 +7,22 @@ if ! command -v python3.12 &> /dev/null; then
     exit 1
 fi
 
+
+# Create and activate virtual environment if it doesn't exist
+if [ ! -d ".venv" ]; then
+    echo "Creating Python virtual environment (.venv)..."
+    python -m venv .venv
+else
+    echo "Using existing Python virtual environment (.venv)..."
+fi
+
+# Make sure to activate the virtual environment
+source .venv/bin/activate
+
 # Install pyodide CLI if needed
-if ! pip show pyodide-build &> /dev/null; then
+if ! .venv/bin/pip show pyodide-build &> /dev/null; then
     echo "Installing pyodide-build..."
-    pip install pyodide-build
+    .venv/bin/pip install pyodide-build
 else
     echo "pyodide-build already installed."
 fi
@@ -18,7 +30,7 @@ fi
 # Create pyodide virtual environment if it doesn't exist
 if [ ! -d ".venv-pyodide" ]; then
     echo "Creating pyodide virtual environment (.venv-pyodide)..."
-    pyodide venv .venv-pyodide
+    .venv/bin/pyodide venv .venv-pyodide
 else
     echo "Using existing pyodide virtual environment (.venv-pyodide)..."
 fi
