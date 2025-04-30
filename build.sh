@@ -7,7 +7,7 @@ if ! command -v python3.12 &> /dev/null; then
     exit 1
 fi
 
-pip install virtualenv ensurepip
+pip install -U virtualenv
 
 # Create and activate virtual environment if it doesn't exist
 if [ ! -d ".venv" ]; then
