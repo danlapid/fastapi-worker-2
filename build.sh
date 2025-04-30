@@ -7,11 +7,7 @@ if ! command -v python3.12 &> /dev/null; then
     exit 1
 fi
 
-if ! python3.12 -m venv --help &> /dev/null; then
-    echo "Python 3.12 venv module not found. Attempting to install..."
-
-    python3.12 -m pip install virtualenv
-fi
+python3.12 -m pip install virtualenv
 
 # Create and activate virtual environment if it doesn't exist
 if [ ! -d ".venv" ]; then
