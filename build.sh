@@ -8,9 +8,9 @@ if ! command -v python3.12 &> /dev/null; then
 fi
 
 # Install pyodide CLI if needed
-if ! python3.12 -m pip show pyodide-build &> /dev/null; then
+if ! pip show pyodide-build &> /dev/null; then
     echo "Installing pyodide-build..."
-    python3.12 -m pip install pyodide-build
+    pip install pyodide-build
 else
     echo "pyodide-build already installed."
 fi
