@@ -4,7 +4,7 @@ set -e
 # Check if apt-get is available (Debian/Ubuntu)
 apt_available=false
 if command -v apt-get &> /dev/null; then
-    sudo apt-get install -y python3.12 python3.12-venv
+    apt-get install -y python3.12 python3.12-venv
 fi
 
 # Check if Python 3.12 is installed
