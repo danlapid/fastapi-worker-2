@@ -1,13 +1,17 @@
 #!/bin/bash
 set -e
 
+# Check if apt-get is available (Debian/Ubuntu)
+apt_available=false
+if command -v apt-get &> /dev/null; then
+    sudo apt-get install -y python3.12 python3.12-venv
+fi
+
 # Check if Python 3.12 is installed
 if ! command -v python3.12 &> /dev/null; then
     echo "Error: Python 3.12 is required but not installed."
     exit 1
 fi
-
-python3.12 -m pip install virtualenv
 
 # Create and activate virtual environment if it doesn't exist
 if [ ! -d ".venv" ]; then
